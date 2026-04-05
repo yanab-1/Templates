@@ -1,14 +1,25 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Sieve_of_Eratosthenes {
-    public static int[] PrimeSieve(int n) {
-		int[] ans = new int[n];
-		ans[0] = ans[1] = 1;
-		for (int i = 2; i * i <= ans.length; i++) {
-			if (ans[i] == 0) {// i prime hai
-				for (int j = 2; i * j < ans.length; j++) {
-					ans[i * j] = 1;
-				}
-			}
-		}
-		return ans;
+	private static List<Integer> sieve(int n) {
+        boolean[] isPrime = new boolean[n + 1];
+        Arrays.fill(isPrime, true);
+        isPrime[0] = isPrime[1] = false;
+
+        for (int i = 2; i * i <= n; i++) {
+            if (isPrime[i]) {
+                for (int j = i * i; j <= n; j += i) {
+                    isPrime[j] = false;
+                }
+            }
+        }
+
+        List<Integer> primes = new ArrayList<>();
+        for (int i = 2; i <= n; i++) {
+            if (isPrime[i]) primes.add(i);
+        }
+        return primes;
     }
 }
