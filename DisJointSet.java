@@ -1,12 +1,17 @@
+<<<<<<< HEAD:DisJoinSet.java
 public class DisJoinSet {
-    int[] parent, size, rank;
+    int[] pare
+=======
+public class DisJointSet {
+	int[] parent, size, rank;
 
-    public DisJoinSet(int n){
-        parent = new int[n];
-        size = new int[n];
-        rank = new int[n];
-        for(int i = 0; i < n; i++) create(i);
-    }
+	public DisJointSet(int n){
+		parent = new int[n];
+		size = new int[n];
+		rank = new int[n];
+		for(int i = 0; i < n; i++) create(i);
+	}
+>>>>>>> 56a029a (daily commit):DisJointSet.java
 
     public void create(int v) {
         parent[v] = v;
